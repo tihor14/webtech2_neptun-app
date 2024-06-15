@@ -1,0 +1,62 @@
+DROP TABLE IF EXISTS Course;
+DROP TABLE IF EXISTS Grade;
+DROP TABLE IF EXISTS Instructor;
+DROP TABLE IF EXISTS Student;
+DROP TABLE IF EXISTS Subject;
+
+
+
+
+
+
+INSERT INTO student (name, `group`) VALUES
+    ('Kovács János', 'A'),
+    ('Nagy Márta', 'A'),
+    ('Tóth Péter', 'B'),
+    ('Kis Anna', 'B'),
+    ('Molnár Gábor', 'C');
+
+INSERT INTO instructor (name, department, email) VALUES
+    ('Nagy Béla', 'Matematika és Fizika tanszék', 'nagy.bela@example.com'),
+    ('Kis Géza', 'Informatika tanszék', 'kis.geza@example.com'),
+    ('Kovács Péter', 'Nyelvek tanszék', 'kovacs.peter@example.com'),
+    ('Szabó Anna', 'Történelem tanszék', 'szabo.anna@example.com'),
+    ('Varga Éva', 'Kémia tanszék', 'varga.eva@example.com'),
+    ('Molnár János', 'Biológia tanszék', 'molnar.janos@example.com'),
+    ('Németh Judit', 'Irodalom tanszék', 'nemeth.judit@example.com'),
+    ('Horváth Tamás', 'Testnevelés tanszék', 'horvath.tamas@example.com');
+INSERT INTO subject (name, instructorId) VALUES
+    ('Matematika', 2),
+    ('Testnevelés', 9),
+    ('Fizika', 2),
+    ('Informatika', 3),
+    ('Angol nyelv', 4),
+    ('Történelem', 5);
+INSERT INTO course (name, subjectId) VALUES
+    ('Matematika I.', 3),
+    ('Matematika II.', 3),
+    ('Fizika I.', 5),
+    ('Fizika II.', 5),
+    ('Informatika I.', 6),
+    ('Angol nyelv I.', 7),
+    ('Történelem I.', 8),
+    ('Történelem II.', 8),
+    ('Testnevelés I.', 4);
+INSERT INTO grade (grade, studentId, courseId) VALUES
+    (4, 1, 1),
+    (5, 1, 2),
+    (3, 2, 1),
+    (4, 2, 3),
+    (5, 3, 2),
+    (3, 3, 4),
+    (4, 4, 3),
+    (5, 4, 5),
+    (2, 5, 1),
+    (3, 5, 6),
+    (4, 1, 7),
+    (5, 1, 7),
+    (3, 2, 8),
+    (4, 2, 8),
+    (5, 3, 7),
+    (3, 3, 6),
+    (4, 4, 1);

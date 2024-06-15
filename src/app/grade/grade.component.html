@@ -1,0 +1,62 @@
+<!-- <div class="row">
+  <div class="col-md-6">
+    <h3>Average Grade by Course</h3>
+    <div>
+      <label for="courseIdInput">Course:</label>
+      <select class="form-control" id="courseIdInput" [(ngModel)]="courseIdInput" name="courseIdInput">
+        @for(course of courses; track $index) {
+          <option [value]="course.id">{{ course.name }}</option>
+        }
+      </select>
+      <button class="btn btn-primary mt-2" (click)="courseIdInput !== null && getAverageGradeByCourse(courseIdInput)">Get Average Grade</button>
+      <div *ngIf="averageGradeByCourse !== null">Average Grade: {{ +averageGradeByCourse }}</div>
+    </div>
+  </div> -->
+  <div class="row">
+    <div class="col-md-6">
+        <form [formGroup]="gradeForm">
+            <div class="mb-3">
+                <label for="studentName" class="form-label">Név</label>
+                <!-- <input type="text" class="form-control" id="name" formControlName="name"> -->
+                <select class="form-select"  id="name" formControlName="name">
+                  <!-- Itt használjuk a *ngFor direktívát a hallgatók nevének listázásához -->
+                  @for(student of students; track $index) {
+                  <option [value]="student.name">{{ student.name }}</option>
+                  }
+              </select>
+            </div>
+            <div class="mb-3">
+                <label for="studentCourse" class="form-label">Kurzus</label>
+                <input type="text" class="form-control" id="course" formControlName="course">
+            </div>
+            <div class="mb-3">
+                <label for="studentGrade" class="form-label">Jegy</label>
+                <input type="number" class="form-control" id="grade" formControlName="grade">
+            </div>
+        </form>
+        <div class="text-end">
+            <button class="btn btn-outline-primary" (click)="saveGrade()">Mentés</button>
+        </div>
+    </div>
+</div>
+
+<table class="table table-striped">
+  <thead>
+      <tr>
+          <th>ID</th>
+          <th>Név</th>
+          <th>Kurzus</th>
+          <th>Jegy</th>
+      </tr>
+  </thead>
+  <tbody>
+      @for(grade of grades; track $index) {
+          <tr>
+              <td>{{ grade.id }}</td>
+              <td>{{ grade.student?.name }}</td>
+              <td>{{ grade.course }}</td>
+              <td>{{ grade.grade }}</td>
+          </tr>
+      }
+  </tbody>
+</table>

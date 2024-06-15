@@ -1,0 +1,42 @@
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Tárgyhoz tartozó kurzusok</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let course of courses">
+            <td>{{ course.name }}</td>
+            <td>
+                <button class="btn btn-outline-danger"
+                (click)="deleteCourseFromSubject(course)">Törlés</button>
+                <button class="btn btn-outline-primary"
+                        (click)="goToCourseStudents(course.id)">Hallgatók</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<div>
+    <button class="btn btn-outline-primary" (click)="toggleCourseForm()">Új kurzus hozzárendelése</button>
+</div>
+
+<div class="row"  *ngIf="showCourseForm">
+    <div class="col-md-6">
+        <form [formGroup]="courseForm">
+            <div class="mb-3">
+                <label for="courseName" class="form-label">Kurzus neve</label>
+                <input type="text" class="form-control" id="name" formControlName="name">
+            </div>
+        </form>
+        <div class="text-end">
+            <button class="btn btn-outline-primary" (click)="saveCourse()">Hozzárendelés</button>
+        </div>
+    </div>
+</div>
+
+<!-- <div *ngIf="selectedSubject">
+    <h4>Kurzusok</h4>
+    <ul>
+        <li *ngFor="let course of courses">{{ course.name }}</li>
+    </ul>
+</div> -->
