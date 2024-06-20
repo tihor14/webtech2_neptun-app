@@ -92,23 +92,38 @@ export class InstructorListComponent implements OnInit, AfterViewInit {
       }
     });
   }
-
-  async onSubmit() {
-    if (this.instructorForm.valid) {
-      const itemData: InstructorDto = this.instructorForm.value;
-      this.instructorService.create(itemData).subscribe({
-        next: (instructorCreated) => {
-          this.router.navigateByUrl('/instructor');
-          this.instructorForm.reset();
-          this.getInstructors();
-        },
-        error: (err) => {
-          console.error('Error:', err);
+  deleteInstructor(instructor: InstructorDto) {
+    this.instructorService.delete(instructor.id).subscribe({
+      next: () => {
+        const index = this.instructors.indexOf(instructor);
+        if (index > -1) {
+          this.instructors.splice(index, 1);
         }
-      });
-    }
+      },
+      error: (err) => {
+        // TODO: notification
+        console.error(err);
+      }
+    });
   }
+  
+  // async onSubmit() {
+  //   if (this.instructorForm.valid) {
+  //     const itemData: InstructorDto = this.instructorForm.value;
+  //     this.instructorService.create(itemData).subscribe({
+  //       next: (instructorCreated) => {
+  //         this.router.navigateByUrl('/instructor');
+  //         this.instructorForm.reset();
+  //         this.getInstructors();
+  //       },
+  //       error: (err) => {
+  //         console.error('Error:', err);
+  //       }
+  //     });
+  //   }
+  // }
   goToInstructorForm(id: number) {
     this.router.navigate([ '/instructor-edit', id ]);
   }
+  
 }

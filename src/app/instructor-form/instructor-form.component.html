@@ -2,6 +2,10 @@
     <div class="col-md-6">
         <form [formGroup]="instructorForm">
             <div class="mb-3">
+                <label for="instructorId" class="form-label">Id</label>
+                <input type="number" class="form-control" id="id" formControlName="id">
+            </div>
+            <div class="mb-3">
                 <label for="instructorName" class="form-label">Név</label>
                 <input type="text" class="form-control" id="name" formControlName="name">
             </div>
@@ -15,7 +19,7 @@
             </div>
             <div class="mb-3">
                 <label for="instructorTaughtSubject" class="form-label">Oktatott tárgy</label>
-                <input type="taughtSubject" class="form-control" id="taughtSubject" formControlName="taughtSubject">
+                <input type="text" class="form-control" id="subjectTaught" formControlName="subjectTaught">
             </div>
         </form>
         <div class="text-end">

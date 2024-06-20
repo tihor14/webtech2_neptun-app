@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
-import { RouterLink, RouterOutlet } from '@angular/router';
+import { Router, RouterLink, RouterOutlet } from '@angular/router';
+import { AuthService } from './services/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -11,4 +12,12 @@ import { RouterLink, RouterOutlet } from '@angular/router';
 })
 export class AppComponent {
   title = 'neptun-app';
+  constructor(public authService: AuthService, 
+      private router:Router,
+      ){}
+  logout() {
+    this.authService.removeToken();
+    this.router.navigateByUrl('/');
+    //this.toastrService.success('Sikeresen kijelentkezett.', 'Kilépés');
+  }
 }

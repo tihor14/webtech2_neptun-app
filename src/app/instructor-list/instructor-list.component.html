@@ -1,20 +1,20 @@
 <table class="table table-striped">
     <thead>
         <tr>
-            <th>Oktató kódja</th>
             <th>Név</th>
             <th>Tanszék</th>
             <th>Email</th>
+            <th>Oktatott tárgyak</th>
             <th>Műveletek</th>
         </tr>
     </thead>
     <tbody>
         @for(instructor of instructors; track $index) {
             <tr>
-                <td>{{ instructor.id }}</td>
                 <td>{{ instructor.name }}</td>
                 <td>{{ instructor.department }}</td>
                 <td>{{ instructor.email }}</td>
+                <td>{{ instructor.subjectTaught }}</td>
                 <td>
                 
                         <button class="btn btn-outline-primary"

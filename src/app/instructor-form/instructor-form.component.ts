@@ -54,6 +54,7 @@ export class InstructorFormComponent implements OnInit{
           this.router.navigateByUrl('/instructor');
         },
         error: (err) => {
+          this.router.navigateByUrl('/instructor');
           console.error(err);
         }
       });

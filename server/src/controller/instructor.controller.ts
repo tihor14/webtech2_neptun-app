@@ -50,8 +50,8 @@ export async function updateInstructor(req: Request, res: Response): Promise<voi
 
 export async function deleteInstructor(req: Request, res: Response): Promise<void> {
     try {
-        delete req.body._id;
-        const {  name, department, email, subjectTaught } = req.body;
+        delete req.body.id;
+        const { name, department, email, subjectTaught } = req.body;
         const instructor = {
           name, department, email, subjectTaught
         }
@@ -65,3 +65,4 @@ export async function deleteInstructor(req: Request, res: Response): Promise<voi
         res.status(500).send('Internal server error');
     }
 }
+
