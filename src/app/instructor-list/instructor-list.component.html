@@ -16,12 +16,11 @@
                 <td>{{ instructor.department }}</td>
                 <td>{{ instructor.email }}</td>
                 <td>
-                    <button class="btn btn-outline-primary"
-                        (click)="goToTaughtSubjects(instructor.id)">Oktatott tárgyak</button>
+                
                         <button class="btn btn-outline-primary"
                         (click)="goToInstructorForm(instructor.id)">Módosítás</button>
-                    <button class="btn btn-outline-danger"
-                        (click)="deleteInstructor(instructor)">Törlés</button>
+                    <!-- <button class="btn btn-outline-danger"
+                        (click)="deleteInstructor(instructor)">Törlés</button> -->
                 </td>
             </tr>
         }

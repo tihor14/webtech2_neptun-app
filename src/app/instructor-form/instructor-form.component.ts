@@ -2,7 +2,7 @@ import { Component, OnInit, inject } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule} from '@angular/forms';
 import { InstructorService } from '../services/instructor.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { InstructorDTO } from '../../../models';
+import { InstructorDto } from '../models/instructor-dto.model';
 
 @Component({
   selector: 'app-instructor-form',
@@ -20,12 +20,12 @@ export class InstructorFormComponent implements OnInit{
 
   activedRoute = inject(ActivatedRoute);
 
-  instructorForm = this.formBuilder.group<InstructorDTO>({
+  instructorForm = this.formBuilder.group<InstructorDto>({
     id: 0,
     name: '',
     department: '',
     email: '',
-    subjectTaught: null
+    subjectTaught: ''
   });
 
   isNewInstructor = true;
@@ -45,7 +45,7 @@ export class InstructorFormComponent implements OnInit{
   }
 
   saveInstructor() {
-    const instructor = this.instructorForm.value as InstructorDTO;
+    const instructor = this.instructorForm.value as InstructorDto;
     console.log(instructor);
     if (this.isNewInstructor) {
       this.instructorService.create(instructor).subscribe({

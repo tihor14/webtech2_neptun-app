@@ -1,7 +1,7 @@
 
 export class Instructor {
 
-    _id: string;
+    id: number;
     
     name: string;
 
@@ -11,11 +11,11 @@ export class Instructor {
 
     subjectTaught: string;
 
-    constructor(item: any) {
-        this._id = item._id
-        this.name = item.name
-        this.department = item.department
-        this.email = item.email
-        this.subjectTaught = item.subjectTaught
+    constructor(instructor: any) {
+        this.id = instructor.id
+        this.name = instructor.name
+        this.department = instructor.department
+        this.email = instructor.email
+        this.subjectTaught = instructor.subjectTaught
     }
 }

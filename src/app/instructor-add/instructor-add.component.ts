@@ -1,7 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { InstructorService } from '../services/instructor.service';
 import { Router } from '@angular/router';
-import { InstructorDTO } from '../../../models';
+import { InstructorDto } from '../models/instructor-dto.model';
 
 @Component({
   selector: 'app-instructor-add',
@@ -15,7 +15,7 @@ export class InstructorAddComponent {
 
   router = inject(Router);
 
-  instructors: InstructorDTO[] = [];
+  instructors: InstructorDto[] = [];
 
   ngOnInit(): void {
     this.instructorService.getAll().subscribe({

@@ -13,6 +13,10 @@
                 <label for="instructorEmail" class="form-label">Email cím</label>
                 <input type="email" class="form-control" id="email" formControlName="email">
             </div>
+            <div class="mb-3">
+                <label for="instructorTaughtSubject" class="form-label">Oktatott tárgy</label>
+                <input type="taughtSubject" class="form-control" id="taughtSubject" formControlName="taughtSubject">
+            </div>
         </form>
         <div class="text-end">
             <button class="btn btn-outline-primary" (click)="saveInstructor()">Mentés</button>

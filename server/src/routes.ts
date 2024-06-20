@@ -12,11 +12,11 @@ export function getRouter() {
     router.put('/user', updateUser);
     router.delete('/user/:id', deleteUser);
 
-    router.get('/item', listInstructor);
-    router.get('/item/:id', );
-    router.post('/item', insertInstructor);
-    router.put('/item', updateInstructor);
-    router.delete('/item/:id', deleteInstructor);
+    router.get('/instructor', listInstructor);
+    router.get('/instructor/:id', );
+    router.post('/instructor', insertInstructor);
+    router.put('/instructor', updateInstructor);
+    router.delete('/instructor/:id', deleteInstructor);
 
     const authUserController = new AuthUserController();
     router.post('/signup', authUserController.create);

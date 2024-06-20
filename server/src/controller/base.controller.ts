@@ -3,6 +3,7 @@ import { MongoClient, ObjectId } from 'mongodb';
 import { Request } from 'express-jwt';
 
 const uri = "mongodb+srv://admin:admin@neptundb.gnlersp.mongodb.net/?retryWrites=true&w=majority&appName=neptundb";
+// const uri = "mongodb://localhost:27017/";
 const client = new MongoClient(uri);
 const databaseName: string = "neptundb";
 

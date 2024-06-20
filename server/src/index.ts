@@ -5,12 +5,12 @@ import { User } from "./entity/User";
 import { handleAuthorizationError } from "./protect-routes";
 
 async function main() {
-  //connectToMongoDB();
+  // connectToMongoDB();
 
   const app = express();
 
   app.use(express.json());
-
+  
   const cors = require('cors');
   const corsOptions = {
       origin: 'http://localhost:4200',
@@ -18,14 +18,70 @@ async function main() {
       optionSuccessStatus: 200
   }
   app.use(cors(corsOptions));
-
+  
   //app.use('/api', getRouter());
   app.use('/api', getRouter(), handleAuthorizationError);
+  
+  // var MongoClient = require('mongodb').MongoClient;
+  //   var url = "mongodb+srv://admin:admin@neptundb.gnlersp.mongodb.net/?retryWrites=true&w=majority&appName=neptundb";
+  //   const client = new MongoClient(url);
+  //   MongoClient.connect(url, function(err, db) {
+  //   if (err) throw err;
+  //   var dbo = db.db("neptundb");
+  //   dbo.createCollection("ASD", function(err, res) {
+  //   if (err) throw err;
+  //   console.log("Collection created!");
+  //   db.close();
+  //   });
+  //   });
+  //   console.log("Itt vagyok");
+  // const url = "mongodb+srv://admin:admin@neptundb.gnlersp.mongodb.net/?retryWrites=true&w=majority&appName=neptundb";
+  // var MongoClient = require('mongodb').MongoClient;
+  // const client = new MongoClient(url);
+
+  // try {
+  //   // Connect to the MongoDB server
+  //   await client.connect();
+  //   console.log("Connected to MongoDB!");
+
+  //   const dbo = client.db("neptundb");
+
+  //   // Data to be inserted
+  //   const myobj = [
+  //     { id: 1, name: 'Nagy Béla', department: 'Matematika és Fizika tanszék', email: 'nagy.bela@example.com', subjectTaught: 'Matematika' },
+  //     { id: 2, name: 'Kis Géza', department: 'Informatika tanszék', email: 'kis.geza@example.com', subjectTaught: 'Informatika' },
+  //     { id: 3, name: 'Kovács Péter', department: 'Informatika tanszék', email: 'kovacs.peter@example.com', subjectTaught: 'Informatika' },
+  //     { id: 4, name: 'Szabó Anna', department: 'Nyelvek tanszék', email: 'szabo.anna@example.com', subjectTaught: 'Angol' },
+  //     { id: 5, name: 'Varga Éva', department: 'Történelem tanszék', email: 'varga.eva@example.com', subjectTaught: 'Történelem' },
+  //     { id: 6, name: 'Molnár János', department: 'Kémia tanszék', email: 'molnar.janos@example.com', subjectTaught: 'Kémia' },
+  //     { id: 7, name: 'Németh Judit', department: 'Biológia tanszék', email: 'nemeth.judit@example.com', subjectTaught: 'Biológia' },
+  //     { id: 8, name: 'Horváth Tamás', department: 'Irodalom tanszék', email: 'horvath.tamas@example.com', subjectTaught: 'Irodalom' }
+  //   ];
+
+  //   // Insert data into the collection
+  //   const result = await dbo.collection("instructor").insertMany(myobj);
+  //   console.log("Number of documents inserted: " + result.insertedCount);
+
+  // } catch (err) {
+  //   console.error(`DB Connection Error: ${err.message}`);
+  // } finally {
+  //   // Close the connection
+  //   await client.close();
+  //   console.log("Connection closed!");
+  // }
+
+  const url = "mongodb+srv://admin:admin@neptundb.gnlersp.mongodb.net/?retryWrites=true&w=majority&appName=neptundb";
+  var MongoClient = require('mongodb').MongoClient;
+  const client = new MongoClient(url);
+  // Connect to the MongoDB server
+  await client.connect();
+  console.log("Connected to MongoDB!");
   app.listen(3000, () => {
       console.log('Listening on :3000 ...');
   });
    
 }
+
 
 main();
 

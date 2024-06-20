@@ -1,7 +1,7 @@
 
 const { MongoClient, ServerApiVersion } = require('mongodb');
 const uri = "mongodb+srv://admin:admin@neptundb.gnlersp.mongodb.net/?retryWrites=true&w=majority&appName=neptundb";
-
+// const uri = "mongodb://localhost:27017/";
 export const client = new MongoClient(uri, {
   serverApi: {
     version: ServerApiVersion.v1,
@@ -34,12 +34,12 @@ export async function connectToMongoDB() {
         const database = client.db("neptundb");
         const collection = database.collection("users");
 
-        // Example: Inserting a user document
-        await collection.insertOne({
-            username: "example",
-            email: "example@example.com",
-            password: "examplepassword",
-        });
+        // // Example: Inserting a user document
+        // await collection.insertOne({
+        //     username: "example",
+        //     email: "example@example.com",
+        //     password: "examplepassword",
+        // });
 
         // Example: Finding users
         const users = await collection.find({}).toArray();
