@@ -32,7 +32,7 @@ export async function connectToMongoDB() {
         await client.connect();
         console.log("Connected to MongoDB successfully");
         const database = client.db("neptundb");
-        const collection = database.collection("users");
+        const collection = database.collection("asd");
 
         // // Example: Inserting a user document
         // await collection.insertOne({

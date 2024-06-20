@@ -4,7 +4,6 @@ import { InstructorComponent } from './instructor/instructor.component';
 import { InstructorFormComponent } from './instructor-form/instructor-form.component';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
-import { UsersComponent } from './users/users.component';
 
 export const routes: Routes = [
     {
@@ -26,9 +25,5 @@ export const routes: Routes = [
     {
         path: 'instructor-edit/:id',
         component: InstructorFormComponent
-    },
-    {
-        path: 'users',
-        component: UsersComponent
     }   
 ];

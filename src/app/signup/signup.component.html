@@ -1,13 +1,13 @@
 <div class="conatiner">
-    <h1>Sign Up!</h1>
+    <h3>Bejelentkezés</h3>
     <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
         <!--TODO: make this floating-->
         <div class="form-group">
-            <label for="name">First name:</label>
+            <label for="name">Vezetéknév:</label>
             <input type="text" formControlName="firstName" class="form-control" id="firstName">
         </div>
         <div class="form-group">
-            <label for="address">Last name:</label>
+            <label for="address">Keresztnév:</label>
             <input type="text" formControlName="lastName" class="form-control" id="lastName">
         </div>
         <div class="form-group">
@@ -15,10 +15,13 @@
             <input type="text" formControlName="email" class="form-control" id="email">
         </div>
         <div class="form-group">
-            <label for="idCard">Password:</label>
+            <label for="idCard">Jelszó:</label>
             <input type="password" formControlName="password" class="form-control" id="password">
         </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <div>
+            <br>
+        </div>
+        <button type="submit" class="btn btn-primary">Regisztráció</button>
     </form>
     <hr>
 

@@ -1,7 +1,6 @@
 import express from "express";
 import { getRouter } from "./routes";
 import { Instructor } from "./entity/Instructor";
-import { User } from "./entity/User";
 import { handleAuthorizationError } from "./protect-routes";
 
 async function main() {
