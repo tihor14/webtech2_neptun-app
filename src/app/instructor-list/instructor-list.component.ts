@@ -93,19 +93,27 @@ export class InstructorListComponent implements OnInit, AfterViewInit {
     });
   }
   deleteInstructor(instructor: InstructorDto) {
-    this.instructorService.delete(instructor.id).subscribe({
-      next: () => {
-        const index = this.instructors.indexOf(instructor);
-        if (index > -1) {
-          this.instructors.splice(index, 1);
-        }
-      },
-      error: (err) => {
-        // TODO: notification
-        console.error(err);
-      }
-    });
-  }
+    console.log(instructor.id);
+    if (instructor && instructor.id !== undefined) {
+        this.instructorService.delete(instructor.id).subscribe({
+            next: () => {
+                const index = this.instructors.indexOf(instructor);
+                if (index > -1) {
+                    this.instructors.splice(index, 1);
+                    this.dataSource.data = this.instructors;  // Frissítsd a dataSource adatot is
+                }
+            },
+            error: (err) => {
+                // TODO: notification
+                console.error('Error:', err);
+            }
+        });
+    } else {
+        console.error('Instructor id is missing');
+    }
+}
+
+
   
   // async onSubmit() {
   //   if (this.instructorForm.valid) {

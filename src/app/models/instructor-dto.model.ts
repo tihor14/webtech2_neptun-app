@@ -1,10 +1,10 @@
 export interface InstructorDto {
-    id: number;
-    name: string;
-    department: string;
-    email: string;
-    subjectTaught: string;
-  }
+  id: number;
+  name?: string;
+  department?: string;
+  email?: string;
+  subjectTaught?: string;
+}
   
   export class InstructorDtoClass implements InstructorDto {
     constructor(

@@ -1,29 +1,29 @@
 <div class="row">
     <div class="col-md-6">
-        <form [formGroup]="instructorForm">
-            <div class="mb-3">
-                <label for="instructorId" class="form-label">Id</label>
-                <input type="number" class="form-control" id="id" formControlName="id">
-            </div>
-            <div class="mb-3">
-                <label for="instructorName" class="form-label">Név</label>
-                <input type="text" class="form-control" id="name" formControlName="name">
-            </div>
-            <div class="mb-3">
-                <label for="instructorDepartment" class="form-label">Tanszék</label>
-                <input type="text" class="form-control" id="department" formControlName="department">
-            </div>
-            <div class="mb-3">
-                <label for="instructorEmail" class="form-label">Email cím</label>
-                <input type="email" class="form-control" id="email" formControlName="email">
-            </div>
-            <div class="mb-3">
-                <label for="instructorTaughtSubject" class="form-label">Oktatott tárgy</label>
-                <input type="text" class="form-control" id="subjectTaught" formControlName="subjectTaught">
-            </div>
-        </form>
-        <div class="text-end">
-            <button class="btn btn-outline-primary" (click)="saveInstructor()">Mentés</button>
+      <div *ngIf="formInvalidNotification" class="alert alert-danger">
+        Hiba: A form érvénytelen. Kérjük, ellenőrizze az adatokat és próbálja újra.
+      </div>
+      <form [formGroup]="instructorForm">
+        <div class="mb-3">
+          <label for="instructorName" class="form-label">Név</label>
+          <input type="text" class="form-control" id="name" formControlName="name">
         </div>
+        <div class="mb-3">
+          <label for="instructorDepartment" class="form-label">Tanszék</label>
+          <input type="text" class="form-control" id="department" formControlName="department">
+        </div>
+        <div class="mb-3">
+          <label for="instructorEmail" class="form-label">Email cím</label>
+          <input type="email" class="form-control" id="email" formControlName="email">
+        </div>
+        <div class="mb-3">
+          <label for="instructorTaughtSubject" class="form-label">Oktatott tárgy</label>
+          <input type="text" class="form-control" id="subjectTaught" formControlName="subjectTaught">
+        </div>
+      </form>
+      <div class="text-end">
+        <button class="btn btn-outline-primary" (click)="saveInstructor()">Mentés</button>
+      </div>
     </div>
-</div>
+  </div>
+  
